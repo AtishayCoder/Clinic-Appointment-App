@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1080932914033",
+    "project_id": "clinic-application-75aab",
+    "storage_bucket": "clinic-application-75aab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080932914033:android:5c594f7673bfce6afbdcd0",
+        "android_client_info": {
+          "package_name": "com.atishayV.clinic_appointment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmoMCbYBkOKkEy468H8EiErr-gwZgl_Nk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
