@@ -41,5 +41,5 @@ android {
 }
 
 flutter {
-    source = "app/src"
+    source = "src"
 }

@@ -65,6 +65,7 @@ class _KandarpNewState extends State<KandarpNew> {
                     ),
                   ),
                 ),
+                SizedBox(height: 15),
                 TextField(
                   controller: numberController,
                   onChanged: (value) {
@@ -77,6 +78,7 @@ class _KandarpNewState extends State<KandarpNew> {
                     ),
                   ),
                 ),
+                SizedBox(height: 15),
                 TextField(
                   controller: timeController,
                   onChanged: (value) {
@@ -89,6 +91,7 @@ class _KandarpNewState extends State<KandarpNew> {
                     ),
                   ),
                 ),
+                SizedBox(height: 15),
                 TextField(
                   controller: dateController,
                   onChanged: (value) {
@@ -101,6 +104,7 @@ class _KandarpNewState extends State<KandarpNew> {
                     ),
                   ),
                 ),
+                SizedBox(height: 25),
                 MaterialButton(
                   onPressed: () async {
                     _firestore.collection("kandarp's patients").add({
@@ -128,6 +132,8 @@ class _KandarpNewState extends State<KandarpNew> {
                   },
                   color: Colors.lightBlue,
                   elevation: 5.0,
+                  minWidth: double.infinity,
+                  height: 35,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),

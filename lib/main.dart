@@ -14,7 +14,9 @@ void main() async {
       projectId: 'clinic-application-75aab',
     ),
   );
-  runApp(const MaterialApp(home: Appointments()));
+  runApp(
+    MaterialApp(theme: ThemeData(useMaterial3: false), home: Appointments()),
+  );
 }
 
 class Appointments extends StatefulWidget {
@@ -26,7 +28,7 @@ class Appointments extends StatefulWidget {
 
 class _AppointmentsState extends State<Appointments> {
   @override
-  void initState() async {
+  void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((d) async {
       await TelephonySMS().requestPermission();
