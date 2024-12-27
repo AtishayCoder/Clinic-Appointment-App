@@ -1,10 +1,10 @@
-import 'package:another_telephony/telephony.dart';
 import 'package:change_case/change_case.dart';
 import 'package:clinic_appointment/utility/error.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:telephony_sms/telephony_sms.dart';
 
-final telephony = Telephony.instance;
+final telephony = TelephonySMS();
 final _firestore = FirebaseFirestore.instance;
 
 class PatientContainer extends StatefulWidget {
@@ -50,8 +50,8 @@ class _PatientContainerState extends State<PatientContainer> {
                       .get();
               for (final doc in matching.docs) {
                 try {
-                  telephony.sendSms(
-                    to: widget.phone,
+                  telephony.sendSMS(
+                    phone: widget.phone,
                     message:
                         'Dear ${widget.name.toCapitalCase()}, your appointment has been cancelled due to some emergency. Kindly fix another date for your appointment.',
                   );
@@ -64,28 +64,43 @@ class _PatientContainerState extends State<PatientContainer> {
               }
             },
             child: Container(
-              color: Colors.lightBlue.shade200,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Name: ${widget.name.toCapitalCase()}',
-                    style: const TextStyle(color: Colors.black, fontSize: 20.0),
-                  ),
-                  Text(
-                    'Phone: ${widget.phone}',
-                    style: const TextStyle(color: Colors.black),
-                  ),
-                  Text(
-                    'Time: ${widget.time}',
-                    style: const TextStyle(color: Colors.black, fontSize: 16.0),
-                  ),
-                  Text(
-                    'Date: ${widget.date}',
-                    style: const TextStyle(color: Colors.black, fontSize: 16.0),
-                  ),
-                ],
+              decoration: BoxDecoration(
+                color: Colors.lightBlue.shade200,
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Name: ${widget.name.toCapitalCase()}',
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 20.0,
+                      ),
+                    ),
+                    Text(
+                      'Phone: ${widget.phone}',
+                      style: const TextStyle(color: Colors.black),
+                    ),
+                    Text(
+                      'Time: ${widget.time}',
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                    Text(
+                      'Date: ${widget.date}',
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
